@@ -1,118 +1,229 @@
 "use client";
 
-const B = "1px solid #111";
+const features = [
+  { icon: <BookHeart />, label: "4 core modules" },
+  { icon: <LaptopCode />, label: "Live build capstone" },
+  { icon: <Users />, label: "Community access" },
+  { icon: <Sparkle />, label: "AI skill Framework" },
+];
 
 export default function Enrol() {
   return (
-    <section id="enrol" style={{ background: "#F7F4EE", borderBottom: B }}>
+    <section
+      id="enrol"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        background: "#000",
+        overflow: "hidden",
+      }}
+    >
+      {/* Blob overlay */}
+      <img
+        src="/bg-blob.png"
+        alt=""
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: "-45px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "120%",
+          height: "115%",
+          objectFit: "cover",
+          mixBlendMode: "screen",
+          pointerEvents: "none",
+          userSelect: "none",
+        }}
+      />
 
-      {/* Label */}
-      <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", borderBottom: B }}>
-        <div style={{ borderRight: B, padding: "16px 28px" }}>
-          <span style={{ fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--fg-3)" }}>Enrolment</span>
-        </div>
-        <div style={{ padding: "16px 28px" }}>
-          <span style={{ fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--fg-3)" }}>03 / Start Here</span>
-        </div>
-      </div>
-
-      {/* Main */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 360px" }}>
-
-        {/* Left */}
-        <div style={{ borderRight: B, padding: "88px 56px 80px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "420px" }}>
-          <div>
-            <h2 className="anim-lines" style={{
-              fontSize: "clamp(48px, 7vw, 108px)", fontWeight: 900,
-              letterSpacing: "-0.04em", lineHeight: 0.88, color: "#111",
-            }}>
-              <span className="line-mask"><span className="line-inner">Stop prompting.</span></span>
-              <span className="line-mask"><span className="line-inner" style={{ fontWeight: 200, fontStyle: "italic", color: "var(--accent)" }}>Start building.</span></span>
-            </h2>
-          </div>
-
-          <div style={{ paddingTop: "56px" }}>
-            <p className="anim-fade" style={{ fontSize: "17px", color: "var(--fg-2)", fontWeight: 300, lineHeight: 1.8, maxWidth: "440px", marginBottom: "48px" }}>
-              Seats are limited each cohort. If you&apos;re serious about shipping production-grade products with AI — this is where you start.
-            </p>
-            <div className="anim-fade" style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
-              <a href="https://mainstack.com/c/kaykav" target="_blank" rel="noopener noreferrer"
-                data-hover
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "12px",
-                  padding: "16px 40px", background: "var(--accent)", color: "#fff",
-                  fontWeight: 700, fontSize: "11px", letterSpacing: "0.12em",
-                  textTransform: "uppercase", textDecoration: "none",
-                  transition: "background .2s, transform .2s",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = "var(--accent-hover)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.transform = "translateY(0)"; }}>
-                Enrol on Mainstack
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 10L10 2M10 2H5M10 2V7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              </a>
-              <span style={{ fontSize: "12px", color: "var(--fg-3)", letterSpacing: "0.06em" }}>Instant access · Lifetime</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ borderBottom: B, padding: "36px 36px" }}>
-            <p style={{ fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--fg-3)", marginBottom: "14px" }}>What&apos;s included</p>
-            {[
-              "4 core modules",
-              "Live build capstone",
-              "Lifetime access",
-              "Community access",
-              "Antigravity Framework",
-            ].map(item => (
-              <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-                <span style={{ width: "4px", height: "4px", background: "var(--gold)", borderRadius: "50%", flexShrink: 0 }} />
-                <span style={{ fontSize: "14px", color: "#111", fontWeight: 400 }}>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Gold block */}
-          <div style={{ flex: 1, background: "var(--gold)", padding: "40px 36px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "200px" }}>
-            <p style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,.6)" }}>Platform</p>
-            <div>
-              <p style={{ fontSize: "22px", fontWeight: 800, color: "#fff", lineHeight: 1.2, letterSpacing: "-0.01em", marginBottom: "8px" }}>Hosted on Mainstack</p>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,.7)", fontWeight: 300 }}>Enrol and get instant access</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Social / contact row */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: B }}>
-        {["Instagram", "Twitter / X", "LinkedIn", "Mainstack"].map((p, i) => (
-          <a key={p}
-            href={p === "Mainstack" ? "https://mainstack.com/c/kaykav" : "#"}
-            target={p === "Mainstack" ? "_blank" : undefined}
-            rel={p === "Mainstack" ? "noopener noreferrer" : undefined}
-            data-hover
+      {/* Content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          paddingTop: "68px",
+        }}
+      >
+        {/* Headline — right-centre */}
+        <div className="enrol-indent">
+          <h2
+            className="anim-lines"
             style={{
-              display: "block", padding: "20px 28px",
-              borderRight: i < 3 ? B : "none",
-              fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase",
-              color: "var(--fg-2)", textDecoration: "none", transition: "background .2s, color .2s",
+              fontSize: "clamp(32px, 5.2vw, 72px)",
+              color: "#fff",
+              textTransform: "uppercase",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#111"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--fg-2)"; }}>
-            {p}
+          >
+            <span className="line-mask">
+              <span className="line-inner" style={{ fontWeight: 400, display: "block" }}>Stop prompting.</span>
+            </span>
+            <span className="line-mask">
+              <span className="line-inner" style={{ fontWeight: 800, display: "block" }}>Start building.</span>
+            </span>
+          </h2>
+        </div>
+
+        {/* Subtext */}
+        <div
+          className="anim-fade enrol-subtext"
+          style={{
+            marginTop: "clamp(30px, 5vh, 80px)",
+            paddingLeft: "17px",
+            paddingRight: "30px",
+            maxWidth: "min(684px, 60%)",
+          }}
+        >
+          <p style={{
+            fontSize: "clamp(15px, 2.2vw, 36px)",
+            fontWeight: 400,
+            color: "#fff",
+            textTransform: "uppercase",
+            lineHeight: 1.2,
+          }}>
+            Seats are limited each cohort. If you&apos;re serious about shipping production-grade products with AI — this is where you start.
+          </p>
+        </div>
+
+        {/* Features 2×2 grid */}
+        <div
+          className="enrol-indent anim-stagger enrol-features"
+          style={{
+            marginTop: "clamp(30px, 5vh, 60px)",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "clamp(16px, 2.5vh, 28px) clamp(24px, 3vw, 48px)",
+            maxWidth: "460px",
+          }}
+        >
+          {features.map(({ icon, label }, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              {icon}
+              <p style={{
+                fontSize: "clamp(13px, 1.3vw, 20px)",
+                fontWeight: 400,
+                color: "#fff",
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+              }}>
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Placeholder image boxes */}
+        <div
+          style={{
+            marginTop: "auto",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          }}
+        >
+          {([283, 326, 326, 283] as const).map((h, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#d9d9d9",
+                height: `clamp(120px, ${(h / 1080) * 100}vh, ${h}px)`,
+                alignSelf: "flex-end",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* CTA button */}
+        <div style={{ display: "flex", justifyContent: "center", padding: "clamp(20px, 3vh, 40px) 0" }}>
+          <a
+            href="https://mainstack.com/c/kaykav"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+              background: "#d3a35c",
+              color: "#000",
+              height: "64px",
+              width: "clamp(240px, 28vw, 450px)",
+              fontSize: "clamp(13px, 1.4vw, 24px)",
+              fontWeight: 400,
+              textTransform: "uppercase",
+              textDecoration: "none",
+            }}
+          >
+            Apply now for cohort 2.0
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4 20L20 4M20 4H8M20 4V16" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
-        ))}
+        </div>
       </div>
 
       <style>{`
-        @media(max-width:900px){
-          div[style*="1fr 360px"]{grid-template-columns:1fr!important}
-          div[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr!important}
+        .enrol-indent {
+          margin-left: calc(33.33% + 17px);
+          padding-right: 30px;
+        }
+        .enrol-subtext {
+          margin-left: 25%;
+        }
+        .enrol-features {
+          margin-left: calc(33.33% + 17px);
+        }
+        @media (max-width: 768px) {
+          .enrol-indent, .enrol-subtext, .enrol-features {
+            margin-left: 30px !important;
+          }
+          .enrol-subtext { max-width: calc(100% - 60px) !important; }
+          .enrol-features { max-width: calc(100% - 60px) !important; }
         }
       `}</style>
     </section>
+  );
+}
+
+function BookHeart() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 7.5c0-.83.67-1.5 1.5-1.5S15 6.67 15 7.5c0 1.5-2.5 3-2.5 3S10 9 10 7.5C10 6.67 10.67 6 11.5 6s1.5.67 1.5 1.5z" fill="white"/>
+    </svg>
+  );
+}
+
+function LaptopCode() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <rect x="2" y="4" width="20" height="13" rx="1" stroke="white" strokeWidth="1.5"/>
+      <path d="M2 20h20" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M9 10l-2 2 2 2M15 10l2 2-2 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function Users() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <circle cx="9" cy="7" r="3" stroke="white" strokeWidth="1.5"/>
+      <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+function Sparkle() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="1.5"/>
+    </svg>
   );
 }

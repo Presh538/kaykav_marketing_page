@@ -65,7 +65,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  background-color: #F7F4EE !important;
+  background-color: #000;
   color: #111111;
   font-family: 'Delight', sans-serif;
   cursor: none;
@@ -75,10 +75,6 @@ html, body {
 
 a, button { cursor: none; }
 
-/* Force light — override any dark-mode Tailwind preflight */
-@media (prefers-color-scheme: dark) {
-  html, body { background-color: #F7F4EE !important; color: #111111 !important; }
-}
 
 /* ── Custom cursor ───────────────────────────────────────── */
 #cursor-dot {
