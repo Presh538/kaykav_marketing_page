@@ -17,22 +17,17 @@ export default function Nav() {
         justifyContent: "space-between",
         padding: "0 30px",
       }}>
-        {/* Logo mark + wordmark */}
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <div style={{ position: "relative", width: "44px", height: "47px", flexShrink: 0 }}>
-            <Image src="/logo.svg" alt="KayKav Academy" fill style={{ objectFit: "contain" }} priority />
-          </div>
-          <div style={{
-            fontWeight: 600,
-            fontSize: "26px",
-            color: "#fff",
-            lineHeight: 1.09,
-            letterSpacing: "0",
-          }}>
-            <p style={{ margin: 0 }}>KayKav.</p>
-            <p style={{ margin: 0 }}>Academy</p>
-          </div>
-        </div>
+        {/* Full logo — mark + wordmark combined */}
+        <a href="#" aria-label="KayKav Academy" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+          <Image
+            src="/full-logo.svg"
+            alt="KayKav Academy"
+            width={145}
+            height={45}
+            priority
+            style={{ height: "45px", width: "auto" }}
+          />
+        </a>
 
         {/* Desktop enroll CTA */}
         <a
@@ -43,7 +38,7 @@ export default function Nav() {
         >
           <span>Enroll Into our Latest Course</span>
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 38L38 10M38 10H18M38 10V30" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M18 13.3006C18 13.3006 31.8766 12.2152 33.8308 14.1693C35.7848 16.1233 34.6992 30 34.6992 30M33 15L13 35" stroke="#D3A35C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
 
@@ -107,11 +102,21 @@ export default function Nav() {
           text-decoration: none;
           text-transform: uppercase;
           line-height: 1;
+          transition: color 0.3s ease;
+        }
+        .nav-enroll:hover {
+          color: #D3A35C;
         }
         .nav-enroll svg {
           width: clamp(14px, 2.5vw, 48px);
           height: clamp(14px, 2.5vw, 48px);
           flex-shrink: 0;
+        }
+        .nav-enroll svg path {
+          transition: stroke 0.3s ease;
+        }
+        .nav-enroll:hover svg path {
+          stroke: #fff; /* gold icon -> white icon */
         }
         .nav-hamburger { display: none; }
 

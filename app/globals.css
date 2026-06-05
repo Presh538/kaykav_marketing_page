@@ -80,7 +80,7 @@ a, button { cursor: none; }
 #cursor-dot {
   position: fixed; top: 0; left: 0;
   width: 7px; height: 7px;
-  background: var(--accent);
+  background: var(--gold);
   border-radius: 50%;
   pointer-events: none; z-index: 9999;
   transform: translate(-50%, -50%);
@@ -90,14 +90,14 @@ a, button { cursor: none; }
 #cursor-ring {
   position: fixed; top: 0; left: 0;
   width: 36px; height: 36px;
-  border: 1.5px solid rgba(41, 88, 152, 0.35);
+  border: 1.5px solid rgba(211, 163, 92, 0.5);
   border-radius: 50%;
   pointer-events: none; z-index: 9998;
   transform: translate(-50%, -50%);
   transition: width .22s, height .22s, border-color .22s;
   will-change: transform;
 }
-#cursor-ring.hovering { width: 60px; height: 60px; border-color: rgba(41,88,152,.65); }
+#cursor-ring.hovering { width: 60px; height: 60px; border-color: rgba(211, 163, 92, 0.9); }
 
 /* ── Marquee ─────────────────────────────────────────────── */
 .marquee-inner {

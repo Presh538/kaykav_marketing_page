@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import HeroCollage from "./HeroCollage";
+import HeroSpiral from "./HeroSpiral";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -28,8 +28,7 @@ export default function Hero() {
         paddingTop: "108px",
       }}
     >
-      {/* Three.js WebGL card orbit */}
-      <HeroCollage />
+      <HeroSpiral />
 
       {/* Blob overlay — mix-blend-screen */}
       <img
@@ -139,12 +138,13 @@ export default function Hero() {
               flexShrink: 0,
               opacity: 0,
               transform: "translateY(10px)",
-              transition: "opacity .8s ease .1s, transform .8s ease .1s",
+              transition: "opacity .8s ease .1s, transform .8s ease .1s, background-color 0.3s, color 0.3s",
             }}
           >
             Course Details
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 5v14M5 13l7 6 7-6" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 18.502V5.00195" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M18 13.002C18 13.002 13.5811 19.0019 12 19.002C10.4188 19.002 6 13.002 6 13.002" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
         </div>
@@ -156,6 +156,16 @@ export default function Hero() {
           .hero-bottom { flex-direction: column; align-items: flex-start !important; }
           .hero-bottom p { max-width: 100% !important; }
           .hero-cta { width: 100% !important; }
+        }
+        .hero-cta:hover {
+          background-color: #D3A35C !important;
+          color: #fff !important;
+        }
+        .hero-cta svg path {
+          transition: stroke 0.3s ease;
+        }
+        .hero-cta:hover svg path {
+          stroke: #fff !important;
         }
       `}</style>
     </section>

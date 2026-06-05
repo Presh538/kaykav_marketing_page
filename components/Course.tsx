@@ -144,6 +144,20 @@ export default function Course() {
       </div>
 
       <style>{`
+        .gold-btn {
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .gold-btn:hover {
+          background-color: #295898 !important; /* switch to primary blue */
+          color: #fff !important;
+        }
+        .gold-btn svg path {
+          transition: stroke 0.3s ease;
+        }
+        .gold-btn:hover svg path {
+          stroke: #fff !important;
+        }
+        
         @media (max-width: 768px) {
           .course-grid {
             grid-template-columns: 1fr !important;
