@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import HeroCollage from "./HeroCollage";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -27,23 +28,8 @@ export default function Hero() {
         paddingTop: "108px",
       }}
     >
-      {/* Image collage — right side */}
-      <img
-        src="/hero-collage.png"
-        alt=""
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "20%",
-          width: "100%",
-          height: "115%",
-          objectFit: "cover",
-          objectPosition: "left top",
-          pointerEvents: "none",
-          userSelect: "none",
-        }}
-      />
+      {/* Three.js WebGL card orbit */}
+      <HeroCollage />
 
       {/* Blob overlay — mix-blend-screen */}
       <img
